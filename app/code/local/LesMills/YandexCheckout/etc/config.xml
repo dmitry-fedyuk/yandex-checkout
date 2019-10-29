@@ -15,6 +15,13 @@
 		</payment>
 	</default>
 	<frontend>
+        <layout>
+            <updates>
+                <yandex_checkout>
+                    <file>yandex_checkout.xml</file>
+                </yandex_checkout>
+            </updates>
+        </layout>			
 		<routers>
 			<yandex_checkout>
 				<args>

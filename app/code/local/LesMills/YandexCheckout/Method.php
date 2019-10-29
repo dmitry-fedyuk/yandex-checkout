@@ -45,6 +45,15 @@ final class LesMills_YandexCheckout_Method extends Mage_Payment_Model_Method_Abs
 	/**
 	 * 2019-10-29
 	 * @override
+	 * @see Mage_Payment_Model_Method_Abstract::getFormBlockType()
+	 * @used-by Mage_Payment_Helper_Data::getMethodFormBlock()
+	 * @return string
+	 */
+	function getFormBlockType() {return LesMills_YandexCheckout_Block_Form::class;}
+
+	/**
+	 * 2019-10-29
+	 * @override
 	 * @see Mage_Payment_Model_Method_Abstract::getInfoInstance()
 	 * @used-by Mage_Payment_Block_Form::getInfoData()
 	 * @return Info|QP

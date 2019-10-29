@@ -10,3 +10,4 @@
 !app/design/frontend/base/default/layout/yandex_checkout.xml
 !app/design/frontend/base/default/template/yandex_checkout/**/*
 !app/etc/modules/LesMills_YandexCheckout.xml
+!skin/frontend/base/default/yandex_checkout/**/*
