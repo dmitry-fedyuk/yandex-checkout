@@ -1,0 +1,28 @@
+<?xml version='1.0'?>
+<config>
+	<modules>
+		<LesMills_YandexCheckout>
+			<author>Dmitry Fedyuk</author>
+			<version>0.0.1</version>
+		</LesMills_YandexCheckout>
+	</modules>
+	<default>
+		<payment>
+			<yandex-checkout>
+				<active>0</active>
+				<model>LesMills_YandexCheckout_Payment</model>
+			</yandex-checkout>
+		</payment>
+	</default>
+	<frontend>
+		<routers>
+			<yandex_checkout>
+				<args>
+					<frontName>yandex-checkout</frontName>
+					<module>LesMills_YandexCheckout</module>
+				</args>
+				<use>standard</use>
+			</yandex_checkout>
+		</routers>
+	</frontend>
+</config>

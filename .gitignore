@@ -1,0 +1,12 @@
+# 2019-10-29 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+# http://stackoverflow.com/questions/987142
+# http://stackoverflow.com/questions/9162919
+# http://stackoverflow.com/questions/8024924#comment15884195_8025106
+*
+!*/
+!/.gitignore
+!/README.md
+!app/code/local/LesMills/YandexCheckout/**/*
+!app/design/frontend/base/default/layout/yandex_checkout.xml
+!app/design/frontend/base/default/template/yandex_checkout/**/*
+!app/etc/modules/LesMills_YandexCheckout.xml

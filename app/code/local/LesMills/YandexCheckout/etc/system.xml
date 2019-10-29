@@ -1,0 +1,28 @@
+<?xml version='1.0'?>
+<config>
+   <sections>
+		<payment>
+			<groups>
+				<yandex-checkout>
+					<frontend_type>text</frontend_type>
+					<label>Yandex.Checkout</label>
+					<show_in_default>1</show_in_default>
+					<show_in_store>1</show_in_store>
+					<show_in_website>1</show_in_website>
+					<sort_order>0</sort_order>
+					<fields>
+						<active translate='label'>
+							<frontend_type>select</frontend_type>
+							<label>Enable?</label>
+							<show_in_default>1</show_in_default>
+							<show_in_store>1</show_in_store>
+							<show_in_website>1</show_in_website>
+							<sort_order>1000</sort_order>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+						</active>
+					</fields>
+				</yandex-checkout>
+			</groups>
+		</payment>
+	</sections>
+</config>

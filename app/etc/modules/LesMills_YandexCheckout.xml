@@ -1,0 +1,9 @@
+<?xml version='1.0'?>
+<config>
+	<modules>
+		<LesMills_YandexCheckout>
+			<active>true</active>
+			<codePool>local</codePool>
+		</LesMills_YandexCheckout>
+	</modules>
+</config>
