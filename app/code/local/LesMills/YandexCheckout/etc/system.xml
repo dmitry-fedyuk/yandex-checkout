@@ -3,7 +3,7 @@
    <sections>
 		<payment>
 			<groups>
-				<yandex-checkout>
+				<yandex_checkout>
 					<frontend_type>text</frontend_type>
 					<label>Yandex.Checkout</label>
 					<show_in_default>1</show_in_default>
@@ -21,7 +21,7 @@
 							<source_model>adminhtml/system_config_source_yesno</source_model>
 						</active>
 					</fields>
-				</yandex-checkout>
+				</yandex_checkout>
 			</groups>
 		</payment>
 	</sections>

@@ -3,15 +3,15 @@
 	<modules>
 		<LesMills_YandexCheckout>
 			<author>Dmitry Fedyuk</author>
-			<version>0.0.1</version>
+			<version>0.0.2</version>
 		</LesMills_YandexCheckout>
 	</modules>
 	<default>
 		<payment>
-			<yandex-checkout>
+			<yandex_checkout>
 				<active>0</active>
-				<model>LesMills_YandexCheckout_Payment</model>
-			</yandex-checkout>
+				<model>LesMills_YandexCheckout_Method</model>
+			</yandex_checkout>
 		</payment>
 	</default>
 	<frontend>
