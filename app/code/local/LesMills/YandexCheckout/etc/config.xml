@@ -1,11 +1,5 @@
 <?xml version='1.0'?>
 <config>
-	<modules>
-		<LesMills_YandexCheckout>
-			<author>Dmitry Fedyuk</author>
-			<version>0.0.3</version>
-		</LesMills_YandexCheckout>
-	</modules>
 	<default>
 		<payment>
 			<yandex_checkout>
@@ -32,4 +26,23 @@
 			</yandex_checkout>
 		</routers>
 	</frontend>
+	<global>
+<!-- 2019-11-05 `<events>` works only inside `<global>` -->
+		<events>
+			<controller_front_init_before>
+				<observers>
+					<LesMills_YandexCheckout>
+						<class>LesMills_YandexCheckout_Observer</class>
+						<method>controller_front_init_before</method>
+					</LesMills_YandexCheckout>
+				</observers>
+			</controller_front_init_before>
+		</events>
+	</global>
+	<modules>
+		<LesMills_YandexCheckout>
+			<author>Dmitry Fedyuk</author>
+			<version>0.0.4</version>
+		</LesMills_YandexCheckout>
+	</modules>
 </config>
