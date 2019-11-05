@@ -17,9 +17,57 @@
 							<show_in_default>1</show_in_default>
 							<show_in_store>1</show_in_store>
 							<show_in_website>1</show_in_website>
-							<sort_order>1000</sort_order>
+							<sort_order>1</sort_order>
 							<source_model>adminhtml/system_config_source_yesno</source_model>
 						</active>
+						<merchantID translate='label'>
+							<comment><![CDATA[<a href='https://mage2.pro/t/4495' target='_blank'>Where to find it?</a>]]></comment>
+							<depends><active>1</active></depends>
+							<frontend_type>text</frontend_type>
+							<label>shopId</label>
+							<show_in_default>1</show_in_default>
+							<show_in_store>1</show_in_store>
+							<show_in_website>1</show_in_website>
+							<sort_order>3</sort_order>
+							<validate>required-entry validate-digits</validate>
+						</merchantID>
+						<test translate='label'>
+							<frontend_type>select</frontend_type>
+							<label>Test Mode?</label>
+							<show_in_default>1</show_in_default>
+							<show_in_store>1</show_in_store>
+							<show_in_website>1</show_in_website>
+							<sort_order>4</sort_order>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+						</test>
+						<testPrivateKey translate='label'>
+							<backend_model>adminhtml/system_config_backend_encrypted</backend_model>
+							<comment><![CDATA[A string of 48 characters starting with «<code>test_</code>».
+<br/>You should get it from your Yandex.Checkout account.
+<br/>An example «<code>test_GAYN1K-abG3t0cUwLRFuLdeLQXlz60SFVDqiuO4B_Eg</code>».]]></comment>
+							<depends><active>1</active><test>1</test></depends>
+							<frontend_type>obscure</frontend_type>
+							<label>[Test] Secret Key</label>
+							<show_in_default>1</show_in_default>
+							<show_in_store>1</show_in_store>
+							<show_in_website>1</show_in_website>
+							<sort_order>5</sort_order>
+<!-- 2019-11-05 Magento 1 does not support validators like `maximum-length-48` and `minimum-length-48`  -->
+							<validate>required-entry</validate>
+						</testPrivateKey>
+						<livePrivateKey translate='label'>
+							<backend_model>adminhtml/system_config_backend_encrypted</backend_model>
+							<comment><![CDATA[A string of 48 characters.
+<br/>You should get it from your Yandex.Checkout account.]]></comment>
+							<depends><active>1</active><test>0</test></depends>
+							<frontend_type>obscure</frontend_type>
+							<label>[Live] Secret Key</label>
+							<show_in_default>1</show_in_default>
+							<show_in_store>1</show_in_store>
+							<show_in_website>1</show_in_website>
+							<sort_order>6</sort_order>
+							<validate>required-entry</validate>
+						</livePrivateKey>
 					</fields>
 				</yandex_checkout>
 			</groups>
