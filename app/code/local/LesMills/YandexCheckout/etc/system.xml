@@ -32,6 +32,7 @@
 							<validate>required-entry validate-digits</validate>
 						</merchantID>
 						<test translate='label'>
+							<comment><![CDATA[<a href='https://checkout.yandex.com/developers/using-api/testing' target='_blank'>How to test?</a>]]></comment>
 							<frontend_type>select</frontend_type>
 							<label>Test Mode?</label>
 							<show_in_default>1</show_in_default>
