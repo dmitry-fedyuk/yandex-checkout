@@ -1,6 +1,7 @@
 <?php
+namespace Df\Core;
 // 2019-11-06
-final class Df_Core_Boot {
+final class Boot {
 	/**
 	 * 2019-11-05
 	 * @used-by Df_Core_Observer::controller_front_init_before()

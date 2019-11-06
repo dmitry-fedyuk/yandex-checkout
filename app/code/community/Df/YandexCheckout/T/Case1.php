@@ -1,6 +1,7 @@
 <?php
+namespace Df\YandexCheckout\T;
 // 2019-11-06
-final class Df_YandexCheckout_T_Case1 extends Df_Core_T_Base {
+final class Case1 extends \Df\Core\T\Base {
 	/** @test 2019-11-06 */
 	function t00() {}
 

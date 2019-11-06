@@ -6,7 +6,7 @@
 			<controller_front_init_before>
 				<observers>
 					<Df_Core>
-						<class>Df_Core_Observer</class>
+						<class>Df\Core\Observer</class>
 						<method>controller_front_init_before</method>
 					</Df_Core>
 				</observers>

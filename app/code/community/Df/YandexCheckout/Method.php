@@ -1,4 +1,6 @@
 <?php
+namespace Df\YandexCheckout;
+use Df\YandexCheckout\Block\Form;
 use Mage_Core_Model_Store as S;
 use Mage_Payment_Model_Info as Info;
 use Mage_Sales_Model_Quote as Q;
@@ -8,7 +10,7 @@ use Mage_Sales_Model_Quote_Payment as QP;
  * The class should be inherited from @see Mage_Payment_Model_Method_Abstract()
  * because of @see Mage_Payment_Helper_Data::getMethodFormBlock()
  */
-final class Df_YandexCheckout_Method extends Mage_Payment_Model_Method_Abstract {
+final class Method extends \Mage_Payment_Model_Method_Abstract {
 	/**
 	 * 2019-10-29
 	 * @override
@@ -38,7 +40,7 @@ final class Df_YandexCheckout_Method extends Mage_Payment_Model_Method_Abstract 
 	 * @param int|string|null|S $s [optional]
 	 * @return string
 	 */
-	function getConfigData($k, $s = null) {return Mage::getStoreConfig(
+	function getConfigData($k, $s = null) {return \Mage::getStoreConfig(
 		"payment/{$this->getCode()}/$k", $s ?: $this->_storeId
 	);}
 
@@ -49,7 +51,7 @@ final class Df_YandexCheckout_Method extends Mage_Payment_Model_Method_Abstract 
 	 * @used-by Mage_Payment_Helper_Data::getMethodFormBlock()
 	 * @return string
 	 */
-	function getFormBlockType() {return Df_YandexCheckout_Block_Form::class;}
+	function getFormBlockType() {return Form::class;}
 
 	/**
 	 * 2019-10-29

@@ -1,9 +1,10 @@
 <?php
+namespace Df\Core\T;
 /**
  * 2019-11-06
- * @see Df_YandexCheckout_T_Case1
+ * @see \Df\YandexCheckout\T\Case1
  */
-abstract class Df_Core_T_Base extends \PHPUnit\Framework\TestCase {
+abstract class Base extends \PHPUnit\Framework\TestCase {
 	/**
 	 * 2019-11-06
 	 * @override
@@ -12,7 +13,7 @@ abstract class Df_Core_T_Base extends \PHPUnit\Framework\TestCase {
 	protected function setUp() {
 		if (!self::$r) {
 			self::$r = true;
-			Df_Core_Boot::p();
+			\Df\Core\Boot::p();
 		}
 	}
 
