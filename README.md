@@ -26,7 +26,8 @@ tar xzvf $FILE ;
 rm -f $FILE ;
 cp -r $REPO-$VERSION/* . ;
 rm -rf $REPO-$VERSION 
+rm -rf var/cache
 ```
 
-## How to update
+## How to upgrade
 Execute the Step 3 from the installation part.
