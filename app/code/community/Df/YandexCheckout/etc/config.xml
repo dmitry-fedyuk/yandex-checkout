@@ -4,7 +4,7 @@
 		<payment>
 			<yandex_checkout>
 				<active>0</active>
-				<model>LesMills_YandexCheckout_Method</model>
+				<model>Df_YandexCheckout_Method</model>
 			</yandex_checkout>
 		</payment>
 	</default>
@@ -20,29 +20,16 @@
 			<yandex_checkout>
 				<args>
 					<frontName>yandex-checkout</frontName>
-					<module>LesMills_YandexCheckout</module>
+					<module>Df_YandexCheckout</module>
 				</args>
 				<use>standard</use>
 			</yandex_checkout>
 		</routers>
 	</frontend>
-	<global>
-<!-- 2019-11-05 `<events>` works only inside `<global>` -->
-		<events>
-			<controller_front_init_before>
-				<observers>
-					<LesMills_YandexCheckout>
-						<class>LesMills_YandexCheckout_Observer</class>
-						<method>controller_front_init_before</method>
-					</LesMills_YandexCheckout>
-				</observers>
-			</controller_front_init_before>
-		</events>
-	</global>
 	<modules>
-		<LesMills_YandexCheckout>
+		<Df_YandexCheckout>
 			<author>Dmitry Fedyuk</author>
 			<version>0.0.4</version>
-		</LesMills_YandexCheckout>
+		</Df_YandexCheckout>
 	</modules>
 </config>

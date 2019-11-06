@@ -14,8 +14,12 @@ composer require yandex-money/yandex-checkout-sdk-php:*
 
 ### Step 3
 ```
+rm -f app/etc/modules/LesMills_YandexCheckout.xml ;
+rm -rf app/code/community/Df ;
 rm -rf app/code/local/LesMills/YandexCheckout ;
+rm -rf app/design/frontend/base/default/template/df ;
 rm -rf app/design/frontend/base/default/template/yandex_checkout ;
+rm -rf skin/frontend/base/default/df ;
 rm -rf skin/frontend/base/default/yandex_checkout ;
 ORG=lesmills-com ;
 REPO=yandex-checkout ;

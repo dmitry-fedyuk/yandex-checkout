@@ -1,0 +1,13 @@
+<?xml version='1.0'?>
+<config>
+	<modules>
+		<Df_Core>
+			<active>true</active>
+			<codePool>community</codePool>
+		</Df_Core>
+		<Df_YandexCheckout>
+			<active>true</active>
+			<codePool>community</codePool>
+		</Df_YandexCheckout>
+	</modules>
+</config>

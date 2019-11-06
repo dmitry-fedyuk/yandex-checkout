@@ -1,0 +1,22 @@
+<?xml version='1.0'?>
+<config>
+	<global>
+<!-- 2019-11-05 `<events>` works only inside `<global>` -->
+		<events>
+			<controller_front_init_before>
+				<observers>
+					<Df_Core>
+						<class>Df_Core_Observer</class>
+						<method>controller_front_init_before</method>
+					</Df_Core>
+				</observers>
+			</controller_front_init_before>
+		</events>
+	</global>
+	<modules>
+		<Df_Core>
+			<author>Dmitry Fedyuk</author>
+			<version>0.0.1</version>
+		</Df_Core>
+	</modules>
+</config>

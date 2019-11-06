@@ -7,8 +7,13 @@
 !/.editorconfig
 !/.gitignore
 !/README.md
+!app/code/community/Df/**/*
 !app/code/local/LesMills/YandexCheckout/**/*
+!app/design/frontend/base/default/layout/df/**/*
 !app/design/frontend/base/default/layout/yandex_checkout.xml
+!app/design/frontend/base/default/template/df/**/*
 !app/design/frontend/base/default/template/yandex_checkout/**/*
+!app/etc/modules/Df.xml
 !app/etc/modules/LesMills_YandexCheckout.xml
+!skin/frontend/base/default/df/**/*
 !skin/frontend/base/default/yandex_checkout/**/*

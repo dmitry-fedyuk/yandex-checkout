@@ -8,7 +8,7 @@ use Mage_Sales_Model_Quote_Payment as QP;
  * The class should be inherited from @see Mage_Payment_Model_Method_Abstract()
  * because of @see Mage_Payment_Helper_Data::getMethodFormBlock()
  */
-final class LesMills_YandexCheckout_Method extends Mage_Payment_Model_Method_Abstract {
+final class Df_YandexCheckout_Method extends Mage_Payment_Model_Method_Abstract {
 	/**
 	 * 2019-10-29
 	 * @override
@@ -49,7 +49,7 @@ final class LesMills_YandexCheckout_Method extends Mage_Payment_Model_Method_Abs
 	 * @used-by Mage_Payment_Helper_Data::getMethodFormBlock()
 	 * @return string
 	 */
-	function getFormBlockType() {return LesMills_YandexCheckout_Block_Form::class;}
+	function getFormBlockType() {return Df_YandexCheckout_Block_Form::class;}
 
 	/**
 	 * 2019-10-29
