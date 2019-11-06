@@ -30,7 +30,7 @@ tar xzvf $FILE ;
 rm -f $FILE ;
 cp -r $REPO-$VERSION/* . ;
 rm -rf $REPO-$VERSION 
-rm -rf var/cache
+rm -rf var/cache var/full_page_cache
 ```
 
 ## How to upgrade
