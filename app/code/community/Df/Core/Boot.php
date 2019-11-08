@@ -20,9 +20,9 @@ final class Boot {
 					is_dir($resource = "{$libDir}/{$c}") ? $requireFiles($resource) : require_once "{$libDir}/{$c}";
 				}
 			};
-			$base = BP . '/app/code/community/Df'; /** @var string $base */
-			// 2017-06-18 The strange array_diff / array_merge combination makes the Df_Core module to be loaded first.
-			foreach (array_merge(['Core'], array_diff(scandir("$base/"), ['Core'])) as $m) {
+			$base = BP . '/app/code/community/Df/'; /** @var string $base */
+			// 2017-06-18 It makes the Df_Core module to be loaded first.
+			foreach (array_merge(['Core'], array_diff(scandir($base), ['Core'])) as $m) {
 				// 2016-11-23 It gets rid of the ['..', '.'] and the root files (non-directories).
 				if (ctype_upper($m[0]) && is_dir($baseM = $base . $m)) {/** @var string $baseM */
 					if (is_dir($libDir = "{$baseM}/lib")) { /** @var string $libDir */

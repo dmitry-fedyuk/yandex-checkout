@@ -1,13 +1,84 @@
 <?xml version='1.0'?>
 <config>
 	<modules>
+		<Df_API>
+			<active>true</active>
+			<codePool>community</codePool>
+			<depends>
+				<Df_Config/>
+				<Df_Core/>
+			</depends>
+		</Df_API>
+		<Df_Config>
+			<active>true</active>
+			<codePool>community</codePool>
+		</Df_Config>
 		<Df_Core>
 			<active>true</active>
 			<codePool>community</codePool>
 		</Df_Core>
+		<Df_Directory>
+			<active>true</active>
+			<codePool>community</codePool>
+		</Df_Directory>
+		<Df_Framework>
+			<active>true</active>
+			<codePool>community</codePool>
+			<depends>
+				<Df_Core/>
+			</depends>
+		</Df_Framework>
+		<Df_Intl>
+			<active>true</active>
+			<codePool>community</codePool>
+		</Df_Intl>
+		<Df_Payment>
+			<active>true</active>
+			<codePool>community</codePool>
+		</Df_Payment>
+		<Df_Quote>
+			<active>true</active>
+			<codePool>community</codePool>
+			<depends>
+				<Df_Core/>
+			</depends>
+		</Df_Quote>
+		<Df_Sentry>
+			<active>true</active>
+			<codePool>community</codePool>
+			<depends>
+				<Df_Core/>
+			</depends>
+		</Df_Sentry>
+		<Df_Xml>
+			<active>true</active>
+			<codePool>community</codePool>
+			<depends>
+				<Df_Core/>
+			</depends>
+		</Df_Xml>
 		<Df_YandexCheckout>
 			<active>true</active>
 			<codePool>community</codePool>
+			<depends>
+				<Df_API/>
+				<Df_Config/>
+				<Df_Core/>
+				<Df_Directory/>
+				<Df_Framework/>
+				<Df_Intl/>
+				<Df_Payment/>
+				<Df_Quote/>
+				<Df_Sentry/>
+				<Df_Zf/>
+			</depends>
 		</Df_YandexCheckout>
+		<Df_Zf>
+			<active>true</active>
+			<codePool>community</codePool>
+			<depends>
+				<Df_Core/>
+			</depends>
+		</Df_Zf>
 	</modules>
 </config>

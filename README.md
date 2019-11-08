@@ -9,7 +9,9 @@ rm -rf composer.json
 
 ### Step 2
 ```
+composer require monolog/monolog:*
 composer require yandex-money/yandex-checkout-sdk-php:* 
+composer require zendframework/zend-filter:*
 ```
 
 ### Step 3

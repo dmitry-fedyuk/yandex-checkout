@@ -3,6 +3,14 @@
 	<global>
 <!-- 2019-11-05 `<events>` works only inside `<global>` -->
 		<events>
+			<controller_action_predispatch>
+				<observers>
+					<Df_Core>
+						<class>Df\Core\Observer</class>
+						<method>controller_action_predispatch</method>
+					</Df_Core>
+				</observers>
+			</controller_action_predispatch>
 			<controller_front_init_before>
 				<observers>
 					<Df_Core>
@@ -11,6 +19,14 @@
 					</Df_Core>
 				</observers>
 			</controller_front_init_before>
+			<controller_front_send_response_after>
+				<observers>
+					<Df_Core>
+						<class>Df\Core\Observer</class>
+						<method>controller_front_send_response_after</method>
+					</Df_Core>
+				</observers>
+			</controller_front_send_response_after>
 		</events>
 	</global>
 	<modules>
