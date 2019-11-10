@@ -1,0 +1,8 @@
+<?xml version='1.0'?>
+<layout version='0.1.0'>
+    <df_payment_redirect_index>
+		<reference name='content'>
+			<block name='Df\Payment\Block\Redirect' template='page/redirect.phtml' type='Df\Payment\Block\Redirect'/>
+		</reference>
+    </df_payment_redirect_index>
+</layout>

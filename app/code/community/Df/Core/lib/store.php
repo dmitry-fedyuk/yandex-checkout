@@ -115,6 +115,7 @@ function df_store_country($store = null) {return df_country(df_store($store)->ge
  * 2016-01-11
  * @used-by df_category()
  * @used-by df_product()
+ * @used-by \Df\YandexCheckout\Method::setStore()
  * @param int|string|null|bool|Store $store [optional]
  * @return int
  */

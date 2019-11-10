@@ -17,13 +17,13 @@
             </updates>
         </layout>			
 		<routers>
-			<yandex_checkout>
+			<df_yandex_checkout>
 				<args>
-					<frontName>yandex-checkout</frontName>
+					<frontName>df-yandex-checkout</frontName>
 					<module>Df_YandexCheckout</module>
 				</args>
 				<use>standard</use>
-			</yandex_checkout>
+			</df_yandex_checkout>
 		</routers>
 	</frontend>
 	<modules>

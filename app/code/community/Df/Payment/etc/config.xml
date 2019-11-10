@@ -1,5 +1,18 @@
 <?xml version='1.0'?>
 <config>
+<!-- 2019-11-05 `<events>` works only inside `<global>` -->
+	<global>
+		<events>
+			<controller_action_predispatch_checkout>
+				<observers>
+					<Df_Core>
+						<class>Df\Payment\Observer</class>
+						<method>controller_action_predispatch_checkout</method>
+					</Df_Core>
+				</observers>
+			</controller_action_predispatch_checkout>
+		</events>
+	</global>
 	<modules>
 		<Df_Payment>
 			<author>Dmitry Fedyuk</author>

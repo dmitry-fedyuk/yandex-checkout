@@ -7,4 +7,3 @@
  * @param array(string => mixed) $data
  */
 function df_dispatch($eventName, array $data = []) {Mage::dispatchEvent($eventName, $data);}
-

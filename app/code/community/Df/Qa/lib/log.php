@@ -45,6 +45,8 @@ function df_bt($levelsToSkip = 0) {
 }
 
 /**
+ * @used-by df_handle_entry_point_exception()
+ * @used-by \Df_YandexCheckout_RedirectController::indexAction()
  * @param _DO|mixed[]|mixed|E $v
  * @param string|object|null $m [optional]
  */
