@@ -1,13 +1,11 @@
 <?php
-namespace Df\YandexCheckout\T;
+namespace Df\YandexCheckout;
+use Df\YandexCheckout\Method as M;
 use YandexCheckout\Client as YC;
 use YandexCheckout\Model\Confirmation\ConfirmationRedirect as Confirmation;
 use YandexCheckout\Request\Payments\CreatePaymentResponse as YP;
-// 2019-11-06
-final class Case1 extends \Df\Core\T\Base {
-	/** 2019-11-06 */
-	function t00() {}
-
+// 2019-11-10
+final class RedirectURL {
 	/**
 	 * 2019-11-06
 	 * 2019-11-09
@@ -34,23 +32,11 @@ final class Case1 extends \Df\Core\T\Base {
 	 *		"status": "pending",
 	 *		"test": true
 	 *	}
+	 * @used-by \Df\YandexCheckout\Method::redirectUrl()
+	 * @param Method $m
+	 * @return string
 	 */
-	function t01() {
-		$yc = new YC(); /** @var YC $yc */
-		$yc->setAuth('649593', 'test_GAYN1K-abG3t0cUwLRFuLdeLQXlz60SFVDqiuO4B_Eg');
-		$yp = $yc->createPayment([
-			'amount' => ['currency' => 'RUB', 'value' => 100.0]
-			,'capture' => true
-			,'confirmation' => ['return_url' => 'https://www.merchant-website.com/return_url', 'type' => 'redirect']
-			,'description' => 'Заказ №1'
-		], uniqid('', true)); /** @var YP $yp */
-		echo df_json_encode($yp->jsonSerialize());
-	}
-
-	/**
-	 * @test 2019-11-10
-	 */
-	function t02() {
+	static function get(M $m) {
 		$yc = new YC(); /** @var YC $yc */
 		$yc->setAuth('649593', 'test_GAYN1K-abG3t0cUwLRFuLdeLQXlz60SFVDqiuO4B_Eg');
 		$yp = $yc->createPayment([
@@ -60,6 +46,6 @@ final class Case1 extends \Df\Core\T\Base {
 			,'description' => 'Заказ №1'
 		], uniqid('', true)); /** @var YP $yp */
 		$c = $yp->getConfirmation(); /** @var Confirmation $c */
-		echo $c->getConfirmationUrl();
+		return df_result_sne($c->getConfirmationUrl());
 	}
 }

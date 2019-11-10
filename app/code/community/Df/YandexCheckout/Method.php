@@ -121,7 +121,7 @@ final class Method extends \Mage_Payment_Model_Method_Abstract {
 	 * @used-by \Df_YandexCheckout_RedirectController::indexAction()
 	 * @return string
 	 */
-	function redirectUrl() {return 'https://money.yandex.ru/api-pages/v2/payment-confirm/epl?orderId=255a1807-000f-5000-8000-1354d57a62fb';}
+	function redirectUrl() {return \Df\YandexCheckout\RedirectURL::get($this);}
 
 	/**
 	 * 2019-10-29
