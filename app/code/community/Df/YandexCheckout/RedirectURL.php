@@ -32,6 +32,7 @@ final class RedirectURL {
 	 *		"status": "pending",
 	 *		"test": true
 	 *	}
+	 * 2019-11-11 «Create a payment»: https://checkout.yandex.com/developers/api#create_payment
 	 * @used-by \Df\YandexCheckout\Method::redirectUrl()
 	 * @param Method $m
 	 * @return string
@@ -67,13 +68,36 @@ final class RedirectURL {
 		 */
 		$yp = $yc->createPayment([
 			/**
-			 * 2019-11-10
+			 * 2019-11-11
+			 * Required. Object.
 			 * «Payment amount.
 			 * Sometimes Yandex.Checkout's partners charge additional commission from the users
 			 * that is not included in this amount.»
+			 * https://checkout.yandex.com/developers/api#create_payment_amount
 			 * https://checkout.yandex.com/developers/api#payment_object_amount
 			 */
-			'amount' => ['currency' => 'RUB', 'value' => 100.0]
+			'amount' => [
+				/**
+				 * 2019-11-11
+				 * Required. String.
+				 * «Currency code in the ISO-4217 format.
+				 * It should match the currency of your subaccount (recipient.gateway_id)
+				 * if you separate payment flows,
+				 * or the currency of the account (shopId in the Merchant Profile) if you don't.»
+				 * https://checkout.yandex.com/developers/api#create_payment_amount_currency
+				 * https://checkout.yandex.com/developers/api#payment_object_amount_currency
+				 */
+				'currency' => 'RUB'
+				/**
+				 * 2019-11-11
+				 * Required. String.
+				 * «Amount in the selected currency, in the form of a string with a dot separator, for example, 10.00.
+				 * The number of digits after the dot depends on the selected currency.»
+				 * https://checkout.yandex.com/developers/api#create_payment_amount_value
+				 * https://checkout.yandex.com/developers/api#payment_object_amount_value
+				 */
+				,'value' => 100.0
+			]
 			,'capture' => true
 			,'confirmation' => ['return_url' => 'https://www.merchant-website.com/return_url', 'type' => 'redirect']
 			/**
