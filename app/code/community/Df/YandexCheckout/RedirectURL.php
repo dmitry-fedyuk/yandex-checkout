@@ -98,6 +98,13 @@ final class RedirectURL {
 				 */
 				,'value' => 100.0
 			]
+			/**
+			 * 2019-11-11
+			 * Required. Boolean.
+			 * «Automatic acceptance  of an incoming payment.»
+			 * https://checkout.yandex.com/developers/payments/basics/payment-process#capture-true
+			 * https://checkout.yandex.com/developers/api#create_payment_capture
+			 */
 			,'capture' => true
 			,'confirmation' => ['return_url' => 'https://www.merchant-website.com/return_url', 'type' => 'redirect']
 			/**
