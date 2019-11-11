@@ -100,13 +100,55 @@ final class RedirectURL {
 			]
 			/**
 			 * 2019-11-11
-			 * Required. Boolean.
-			 * «Automatic acceptance  of an incoming payment.»
+			 * Optional. Boolean.
+			 * «Automatic acceptance of an incoming payment.»
 			 * https://checkout.yandex.com/developers/payments/basics/payment-process#capture-true
 			 * https://checkout.yandex.com/developers/api#create_payment_capture
 			 */
 			,'capture' => true
-			,'confirmation' => ['return_url' => 'https://www.merchant-website.com/return_url', 'type' => 'redirect']
+			/**
+			 * 2019-11-11
+			 * Optional. Object.
+			 * «Information required to initiate the selected payment confirmation scenario by the user.»
+			 * https://checkout.yandex.com/developers/payments/basics/payment-process#user-confirmation
+			 * https://checkout.yandex.com/developers/api#create_payment_confirmation
+			 * https://checkout.yandex.com/developers/api#payment_object_confirmation
+			 */
+			,'confirmation' => [
+				/**
+				 * 2019-11-11
+				 * Optional. Boolean.
+				 * «A request for making a payment with authentication by 3-D Secure.
+				 * It works if you accept bank card payments without user confirmation by default.
+				 * In other cases, the 3-D Secure authentication will be handled by Yandex.Checkout.
+				 * If you would like to accept payments without additional confirmation by the user,
+				 * contact your Yandex.Checkout manager.»
+				 * https://checkout.yandex.com/developers/api#create_payment_confirmation_redirect_enforce
+				 */
+				'enforce' => true
+				/**
+				 * 2019-11-11
+				 * Optional. String.
+				 * «Language of the interface, emails, and text messages that will be displayed and sent to the user.
+				 * Formatted in accordance with ISO/IEC 15897.
+				 * Possible values: ru_RU, en_US.»
+				 * https://checkout.yandex.com/developers/api#create_payment_confirmation_locale
+				 */
+				,'locale' => 'ru_RU'
+				/**
+				 * 2019-11-11
+				 * Required. String.
+				 * «The URL that the user will return to after confirming or canceling the payment on the webpage.»
+				 * https://checkout.yandex.com/developers/api#create_payment_confirmation_redirect_return_url
+				 */
+				,'return_url' => 'https://www.merchant-website.com/return_url'
+				/**
+				 * 2019-11-11
+				 * Required. String. «Confirmation scenario code.»
+				 * https://checkout.yandex.com/developers/api#create_payment_confirmation_redirect_type
+				 */
+				,'type' => 'redirect'
+			]
 			/**
 			 * 2019-11-11
 			 * «Description of the transaction (maximum 128 characters)
