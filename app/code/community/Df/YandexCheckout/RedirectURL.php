@@ -86,10 +86,18 @@ final class RedirectURL {
 			,'description' => 'Заказ №1'
 			/**
 			 * 2019-11-11
+			 * 1)  Required. Object. «Payment method  used for this payment».
+			 * https://checkout.yandex.com/developers/payments/basics/payment-methods
+			 * https://checkout.yandex.com/developers/api#payment_object_recipient
+			 * 2) Despite the documentation says that the parameter is required, actually it is not.
+			 */
+			,'payment_method' => []
+			/**
+			 * 2019-11-11
 			 * 1) 'recipient' => ['account_id' => '', 'gateway_id' => '']
 			 * 2) Required. Object. «Payment recipient».
 			 * https://checkout.yandex.com/developers/api#payment_object_recipient
-			 * 3) Despite the documentation says that it is required, actually, it is not.
+			 * 3) Despite the documentation says that the parameter is required, actually it is not.
 			 * 4) The Yandex.Checkout library will fail if empty values are passed.
 			 * 5) Actually, `account_id` is the same as the first parameter of
 			 * @uses \YandexCheckout\Client\BaseClient::setAuth():
