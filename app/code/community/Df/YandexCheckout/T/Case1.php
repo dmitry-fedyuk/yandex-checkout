@@ -78,35 +78,10 @@ final class Case1 extends \Df\Core\T\Base {
 			 * «Description of the transaction (maximum 128 characters)
 			 * displayed in your Yandex.Checkout Merchant Profile,
 			 * and shown to the user during checkout.»
+			 * https://checkout.yandex.com/developers/api#create_payment_description
 			 * https://checkout.yandex.com/developers/api#payment_object_description
 			 */
 			,'description' => 'Заказ №1'
-			/**
-			 * 2019-11-11
-			 * 1)  Required. Object. «Payment method  used for this payment».
-			 * https://checkout.yandex.com/developers/payments/basics/payment-methods
-			 * https://checkout.yandex.com/developers/api#payment_object_recipient
-			 * 2) Despite the documentation says that the parameter is required, actually it is not.
-			 */
-			,'payment_method' => []
-			/**
-			 * 2019-11-11
-			 * 1) 'recipient' => ['account_id' => '', 'gateway_id' => '']
-			 * 2) Required. Object. «Payment recipient».
-			 * https://checkout.yandex.com/developers/api#payment_object_recipient
-			 * 3) Despite the documentation says that it is required, actually, it is not.
-			 * 4) The Yandex.Checkout library will fail if empty values are passed.
-			 * 5) Actually, `account_id` is the same as the first parameter of
-			 * @uses \YandexCheckout\Client\BaseClient::setAuth():
-			 * it is shown in the @use \YandexCheckout\Client::createPayment() response.
-			 * 6)
-			 * @see \YandexCheckout\Request\Payments\CreatePaymentRequestBuilder::setRecipient()
-			 * https://github.com/yandex-money/yandex-checkout-sdk-php/blob/1.5.4/lib/Request/Payments/CreatePaymentRequestBuilder.php#L120-L137
-			 * @see \YandexCheckout\Model\Recipient::setAccountId()
-			 * https://github.com/yandex-money/yandex-checkout-sdk-php/blob/1.5.4/lib/Model/Recipient.php#L67-L86
-			 * @see \YandexCheckout\Model\Recipient::setGatewayId()
-			 * https://github.com/yandex-money/yandex-checkout-sdk-php/blob/1.5.4/lib/Model/Recipient.php#L100-L121
-			 */
 		], uniqid('', true)); /** @var YP $yp */
 		echo df_json_encode($yp->jsonSerialize());
 	}
@@ -159,35 +134,10 @@ final class Case1 extends \Df\Core\T\Base {
 			 * «Description of the transaction (maximum 128 characters)
 			 * displayed in your Yandex.Checkout Merchant Profile,
 			 * and shown to the user during checkout.»
+			 * https://checkout.yandex.com/developers/api#create_payment_description
 			 * https://checkout.yandex.com/developers/api#payment_object_description
 			 */
 			,'description' => 'Заказ №1'
-			/**
-			 * 2019-11-11
-			 * 1)  Required. Object. «Payment method  used for this payment».
-			 * https://checkout.yandex.com/developers/payments/basics/payment-methods
-			 * https://checkout.yandex.com/developers/api#payment_object_recipient
-			 * 2) Despite the documentation says that the parameter is required, actually it is not.
-			 */
-			,'payment_method' => []
-			/**
-			 * 2019-11-11
-			 * 1) 'recipient' => ['account_id' => '', 'gateway_id' => '']
-			 * 2) Required. Object. «Payment recipient».
-			 * https://checkout.yandex.com/developers/api#payment_object_recipient
-			 * 3) Despite the documentation says that the parameter is required, actually it is not.
-			 * 4) The Yandex.Checkout library will fail if empty values are passed.
-			 * 5) Actually, `account_id` is the same as the first parameter of
-			 * @uses \YandexCheckout\Client\BaseClient::setAuth():
-			 * it is shown in the @use \YandexCheckout\Client::createPayment() response.
-			 * 6)
-			 * @see \YandexCheckout\Request\Payments\CreatePaymentRequestBuilder::setRecipient()
-			 * https://github.com/yandex-money/yandex-checkout-sdk-php/blob/1.5.4/lib/Request/Payments/CreatePaymentRequestBuilder.php#L120-L137
-			 * @see \YandexCheckout\Model\Recipient::setAccountId()
-			 * https://github.com/yandex-money/yandex-checkout-sdk-php/blob/1.5.4/lib/Model/Recipient.php#L67-L86
-			 * @see \YandexCheckout\Model\Recipient::setGatewayId()
-			 * https://github.com/yandex-money/yandex-checkout-sdk-php/blob/1.5.4/lib/Model/Recipient.php#L100-L121
-			 */
 		], uniqid('', true)); /** @var YP $yp */
 		$c = $yp->getConfirmation(); /** @var Confirmation $c */
 		echo $c->getConfirmationUrl();
