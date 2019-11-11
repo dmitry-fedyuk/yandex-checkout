@@ -131,6 +131,15 @@ final class Case1 extends \Df\Core\T\Base {
 			 * https://checkout.yandex.com/developers/api#payment_object_description
 			 */
 			,'description' => 'Заказ №1'
+			/**
+			 * 2019-11-11
+			 * Optional. Boolean.
+			 * «Saving payment data (can be used for direct debits).
+			 * The true value initiates the creation of a reusable payment_method.»
+			 * https://checkout.yandex.com/developers/payments/recurring-payments
+			 * https://checkout.yandex.com/developers/api#create_payment_save_payment_method
+			 */
+			,'save_payment_method' => false
 		], uniqid('', true)); /** @var YP $yp */
 		echo df_json_encode($yp->jsonSerialize());
 	}
@@ -236,6 +245,15 @@ final class Case1 extends \Df\Core\T\Base {
 			 * https://checkout.yandex.com/developers/api#payment_object_description
 			 */
 			,'description' => 'Заказ №1'
+			/**
+			 * 2019-11-11
+			 * Optional. Boolean.
+			 * «Saving payment data (can be used for direct debits).
+			 * The true value initiates the creation of a reusable payment_method.»
+			 * https://checkout.yandex.com/developers/payments/recurring-payments
+			 * https://checkout.yandex.com/developers/api#create_payment_save_payment_method
+			 */
+			,'save_payment_method' => false
 		], uniqid('', true)); /** @var YP $yp */
 		$c = $yp->getConfirmation(); /** @var Confirmation $c */
 		echo $c->getConfirmationUrl();

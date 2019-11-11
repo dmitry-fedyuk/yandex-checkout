@@ -3,6 +3,7 @@ namespace Df\YandexCheckout;
 use Df\YandexCheckout\Block\Form;
 use Mage_Core_Model_Store as S;
 use Mage_Payment_Model_Info as Info;
+use Mage_Sales_Model_Order_Payment as OP;
 use Mage_Sales_Model_Quote as Q;
 use Mage_Sales_Model_Quote_Payment as QP;
 /**
@@ -55,10 +56,11 @@ final class Method extends \Mage_Payment_Model_Method_Abstract {
 
 	/**
 	 * 2019-10-29
+	 * 2019-11-11 The result is an @see OP on an order placement.
 	 * @override
 	 * @see \Mage_Payment_Model_Method_Abstract::getInfoInstance()
 	 * @used-by \Mage_Payment_Block_Form::getInfoData()
-	 * @return Info|QP
+	 * @return Info|QP|OP
 	 */
 	function getInfoInstance() {return $this->_ii;}
 

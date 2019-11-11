@@ -1,6 +1,7 @@
 <?php
 namespace Df\YandexCheckout;
 use Df\YandexCheckout\Method as M;
+use Mage_Sales_Model_Order as O;
 use YandexCheckout\Client as YC;
 use YandexCheckout\Model\Confirmation\ConfirmationRedirect as Confirmation;
 use YandexCheckout\Request\Payments\CreatePaymentResponse as YP;
@@ -40,6 +41,7 @@ final class RedirectURL {
 	static function get(M $m) {
 		$yc = new YC(); /** @var YC $yc */
 		$yc->setAuth('649593', 'test_GAYN1K-abG3t0cUwLRFuLdeLQXlz60SFVDqiuO4B_Eg');
+		$o = $m->getInfoInstance()->getOrder(); /** @var O $o */
 		/**
 		 * 2019-11-09
 		 * A response:
@@ -151,6 +153,7 @@ final class RedirectURL {
 			]
 			/**
 			 * 2019-11-11
+			 * Optional. String.
 			 * «Description of the transaction (maximum 128 characters)
 			 * displayed in your Yandex.Checkout Merchant Profile,
 			 * and shown to the user during checkout.»
@@ -158,6 +161,15 @@ final class RedirectURL {
 			 * https://checkout.yandex.com/developers/api#payment_object_description
 			 */
 			,'description' => 'Заказ №1'
+			/**
+			 * 2019-11-11
+			 * Optional. Boolean.
+			 * «Saving payment data (can be used for direct debits).
+			 * The true value initiates the creation of a reusable payment_method.»
+			 * https://checkout.yandex.com/developers/payments/recurring-payments
+			 * https://checkout.yandex.com/developers/api#create_payment_save_payment_method
+			 */
+			,'save_payment_method' => false
 		], uniqid('', true)); /** @var YP $yp */
 		$c = $yp->getConfirmation(); /** @var Confirmation $c */
 		return df_result_sne($c->getConfirmationUrl());
