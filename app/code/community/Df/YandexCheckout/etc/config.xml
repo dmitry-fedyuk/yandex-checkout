@@ -2,19 +2,19 @@
 <config>
 	<default>
 		<payment>
-			<yandex_checkout>
+			<df_yandex_checkout>
 				<active>0</active>
 				<currency>RUB</currency>
 				<model>Df\YandexCheckout\Method</model>
-			</yandex_checkout>
+			</df_yandex_checkout>
 		</payment>
 	</default>
 	<frontend>
         <layout>
             <updates>
-                <yandex_checkout>
-                    <file>yandex_checkout.xml</file>
-                </yandex_checkout>
+                <df_yandex_checkout>
+                    <file>df/yandex_checkout.xml</file>
+                </df_yandex_checkout>
             </updates>
         </layout>			
 		<routers>

@@ -41,7 +41,7 @@ final class RedirectURL {
 	static function get(M $m) {
 		$yc = new YC(); /** @var YC $yc */
 		$yc->setAuth('649593', 'test_GAYN1K-abG3t0cUwLRFuLdeLQXlz60SFVDqiuO4B_Eg');
-		$o = $m->getInfoInstance()->getOrder(); /** @var O $o */
+		$a = dfp_due($m);
 		/**
 		 * 2019-11-09
 		 * A response:
@@ -98,7 +98,7 @@ final class RedirectURL {
 				 * https://checkout.yandex.com/developers/api#create_payment_amount_value
 				 * https://checkout.yandex.com/developers/api#payment_object_amount_value
 				 */
-				,'value' => 100.0
+				,'value' => dfp_due($m)
 			]
 			/**
 			 * 2019-11-11
