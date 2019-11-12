@@ -12,6 +12,9 @@
 		<Df_Checkout>
 			<active>true</active>
 			<codePool>community</codePool>
+			<depends>
+				<Mage_Checkout/>
+			</depends>
 		</Df_Checkout>
 		<Df_Config>
 			<active>true</active>

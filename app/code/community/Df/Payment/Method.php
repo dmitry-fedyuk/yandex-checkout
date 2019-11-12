@@ -42,6 +42,8 @@ abstract class Method extends \Mage_Payment_Model_Method_Abstract {
 	 * @override
 	 * @see \Mage_Payment_Model_Method_Abstract::getCode()
 	 * @used-by getConfigData()
+	 * @used-by \Df\YandexCheckout\Method::getOrderPlaceRedirectUrl()
+	 * @used-by \Df\YandexCheckout\RedirectURL::get()
 	 * @used-by \Mage_Payment_Block_Form_Container::_prepareLayout()
 	 * @return string
 	 */

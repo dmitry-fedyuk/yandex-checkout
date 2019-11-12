@@ -33,7 +33,7 @@ final class Method extends \Df\Payment\Method {
 	 * https://github.com/OpenMage/magento-mirror/blob/1.9.4.3/app/code/core/Mage/Checkout/Model/Type/Onepage.php#L838-L857
 	 * @return string
 	 */
-	function getOrderPlaceRedirectUrl() {return \Mage::getUrl('df-yandex-checkout/redirect', ['_secure' => true]);}
+	function getOrderPlaceRedirectUrl() {return \Mage::getUrl("{$this->getCode()}/redirect", ['_secure' => true]);}
 
 	/**
 	 * 2019-10-29

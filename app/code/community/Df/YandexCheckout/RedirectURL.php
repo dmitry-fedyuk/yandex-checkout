@@ -141,7 +141,10 @@ final class RedirectURL {
 				 * «The URL that the user will return to after confirming or canceling the payment on the webpage.»
 				 * https://checkout.yandex.com/developers/api#create_payment_confirmation_redirect_return_url
 				 */
-				,'return_url' => \Mage::getUrl('df-yandex-checkout/customerReturn', ['_secure' => true])
+				,'return_url' => \Mage::getUrl("{$m->getCode()}/customerReturn", [
+					// 2019-11-12 Without `_nosid` the system will add the `?___SID=U` parameter to the URL.
+					'_nosid' => true, '_query' => [self::OID => $m->oq()->getIncrementId()], '_secure' => true
+				])
 				/**
 				 * 2019-11-11
 				 * Required. String. «Confirmation scenario code.»
@@ -172,4 +175,10 @@ final class RedirectURL {
 		$c = $yp->getConfirmation(); /** @var Confirmation $c */
 		return df_result_sne($c->getConfirmationUrl());
 	}
+
+	/**
+	 * 2019-11-22
+	 * @used-by get()
+	 */
+	const OID = 'order';
 }

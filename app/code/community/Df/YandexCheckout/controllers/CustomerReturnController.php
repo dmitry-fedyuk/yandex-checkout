@@ -1,5 +1,6 @@
 <?php
 use Df\Payment\Redirector as R;
+use Df\YandexCheckout\RedirectURL;
 use Mage_Sales_Model_Order as O;
 // 2019-11-12
 class Df_YandexCheckout_CustomerReturnController extends Mage_Core_Controller_Front_Action {
