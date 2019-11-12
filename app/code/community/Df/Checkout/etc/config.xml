@@ -1,0 +1,9 @@
+<?xml version='1.0'?>
+<config>
+	<modules>
+		<Df_Checkout>
+			<author>Dmitry Fedyuk</author>
+			<version>0.0.1</version>
+		</Df_Checkout>
+	</modules>
+</config>

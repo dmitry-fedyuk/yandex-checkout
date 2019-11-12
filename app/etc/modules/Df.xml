@@ -9,6 +9,10 @@
 				<Df_Core/>
 			</depends>
 		</Df_API>
+		<Df_Checkout>
+			<active>true</active>
+			<codePool>community</codePool>
+		</Df_Checkout>
 		<Df_Config>
 			<active>true</active>
 			<codePool>community</codePool>
@@ -62,6 +66,7 @@
 			<codePool>community</codePool>
 			<depends>
 				<Df_API/>
+				<Df_Checkout/>
 				<Df_Config/>
 				<Df_Core/>
 				<Df_Directory/>

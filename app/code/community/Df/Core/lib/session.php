@@ -1,7 +1,6 @@
 <?php
 use Exception as E;
 use Mage_Adminhtml_Model_Session as SB;
-use Mage_Checkout_Model_Session as SC;
 use Mage_Core_Exception as ME;
 use Mage_Core_Model_Session as S;
 /**
@@ -37,14 +36,3 @@ function df_exception_to_session(E $e) {
 function df_session() {return dfcf(function() {return Mage::getSingleton(
 	(df_is_backend() ? 'adminhtml' : 'core') . '/session'
 );});}
-
-/**
- * 2019-11-10
- * @used-by \Df\Payment\Redirector::is()
- * @used-by \Df\Payment\Redirector::restoreQuote()
- * @used-by \Df\Payment\Redirector::set()
- * @used-by \Df\Payment\Redirector::unset()
- * @used-by \Df_YandexCheckout_RedirectController::indexAction()
- * @return SC
- */
-function df_session_checkout() {return \Mage::getSingleton('checkout/session');}

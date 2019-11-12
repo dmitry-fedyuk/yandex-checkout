@@ -4,6 +4,7 @@
 		<payment>
 			<yandex_checkout>
 				<active>0</active>
+				<currency>RUB</currency>
 				<model>Df\YandexCheckout\Method</model>
 			</yandex_checkout>
 		</payment>

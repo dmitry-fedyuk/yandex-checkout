@@ -45,7 +45,7 @@ class Df_YandexCheckout_RedirectController extends Mage_Core_Controller_Front_Ac
 			}
 			else {
 				R::set();
-				$m = df_session_checkout()->getLastRealOrder()->getPayment()->getMethodInstance(); /** @var M $m */
+				$m = df_checkout_session()->getLastRealOrder()->getPayment()->getMethodInstance(); /** @var M $m */
 				$this->getResponse()->setRedirect($m->redirectUrl());
 			}
 		}
@@ -54,7 +54,7 @@ class Df_YandexCheckout_RedirectController extends Mage_Core_Controller_Front_Ac
 			 * Обратите внимание,
 			 * что при возвращении на страницу RM_URL_CHECKOUT
 			 * диагностическое сообщение надо добавлять в df_session_core(),
-			 * а не в df_session_checkout(),
+			 * а не в df_checkout_session(),
 			 * потому что сообщения сессии checkout
 			 * не отображаются в стандартной теме на странице checkout/onepage
 			 */

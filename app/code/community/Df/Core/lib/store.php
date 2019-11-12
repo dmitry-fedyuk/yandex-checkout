@@ -1,21 +1,17 @@
 <?php
 use Mage_Core_Helper_Data as H;
-use Mage_Core_Model_Store as Store;
+use Mage_Core_Model_Store as S;
 use Mage_Directory_Model_Country as Country;
 /**
- * 2015-02-04
- * Обратите внимание, что вряд ли мы вправе кэшировать результат при парметре $store = null,
- * ведь текущий магазин может меняться.
- * @param Store|int|string|bool|null $store [optional]
- * @return Store
+ * 2015-02-04 Вряд ли мы вправе кэшировать результат при $r = null, потому что текущий магазин может меняться.
+ * @used-by \Df\Config\Settings::scope()
+ * @param S|int|string|bool|null $r [optional]
+ * @return S
  * @throws Mage_Core_Model_Store_Exception|Exception
  */
-function df_store($store = null) {
-	/** @var Store $result */
-	$result = $store;
-	if (is_null($result)) {
-		/** @var Store $coreCurrentStore */
-		$coreCurrentStore = Mage::app()->getStore();
+function df_store($r = null) {
+	if (is_null($r)) {
+		$coreCurrentStore = Mage::app()->getStore(); /** @var S $coreCurrentStore */
 		/**
 		 * 2015-08-10
 		 * Доработал алгоритм.
@@ -24,10 +20,9 @@ function df_store($store = null) {
 		 * По аналогии с @see Mage_Adminhtml_Block_Catalog_Product_Grid::_getStore()
 		 */
 		if ('admin' === $coreCurrentStore->getCode()) {
-			/** @var int|null $storeIdFromRequest */
-			$storeIdFromRequest = df_request('store');
+			$storeIdFromRequest = df_request('store'); /** @var int|null $storeIdFromRequest */
 			if ($storeIdFromRequest) {
-				$result = Mage::app()->getStore($result);
+				$r = Mage::app()->getStore($r);
 			}
 			/**
 			 * 2015-09-20
@@ -45,15 +40,13 @@ function df_store($store = null) {
 			 * Кажется, что неправильно. Возможно, надо поменять.
 			 * Но решил это пока не трогать, чтобы не поломать текущее поведение модулей.
 			 */
-			if (is_null($result) && Mage::app()->isSingleStoreMode()) {
-				$result = $coreCurrentStore;
+			if (is_null($r) && Mage::app()->isSingleStoreMode()) {
+				$r = $coreCurrentStore;
 			}
 		}
-		/**
-		 * Теперь смотрим, нельзя ли узнать текущий магазин из веба-адреса в формате РСМ.
-		 * Этот формат используют модули 1С:Управление торговлей и Яндекс-Маркет.
-		 */
-		if (is_null($result)) {
+		// Теперь смотрим, нельзя ли узнать текущий магазин из веба-адреса в формате РСМ.
+		// Этот формат используют модули 1С:Управление торговлей и Яндекс-Маркет.
+		if (is_null($r)) {
 			/**
 			 * @uses Df_Core_State::getStoreProcessed()
 			 * может вызывать @see df_store() опосредованно: например, через @see df_assert().
@@ -63,9 +56,7 @@ function df_store($store = null) {
 			static $recursionLevel = 0;
 			if (!$recursionLevel) {
 				$recursionLevel++;
-				try {
-					$result = Mage::app()->getStore();
-				}
+				try {$r = Mage::app()->getStore();}
 				catch (Exception $e) {
 					$recursionLevel--;
 					throw $e;
@@ -73,14 +64,14 @@ function df_store($store = null) {
 				$recursionLevel--;
 			}
 		}
-		if (is_null($result)) {
-			$result = $coreCurrentStore;
+		if (is_null($r)) {
+			$r = $coreCurrentStore;
 		}
 	}
-	if (!is_object($result)) {
-		$result = Mage::app()->getStore($result);
+	if (!is_object($r)) {
+		$r = Mage::app()->getStore($r);
 	}
-	if (!is_object($result)) {
+	if (!is_object($r)) {
 		/**
 		 * 2015-08-14
 		 * Такое бывает, например, когда текущий магазин ещё не инициализирован.
@@ -90,7 +81,7 @@ function df_store($store = null) {
 		 */
 		Mage::app()->throwStoreException();
 	}
-	return $result;
+	return $r;
 }
 
 /**
@@ -104,7 +95,7 @@ function df_store_code($store = null) {return df_store($store)->getCode();}
 /**            
  * 2017-01-21
  * «How to get the store's country?» https://mage2.pro/t/2509
- * @param null|string|int|Store $store [optional]
+ * @param null|string|int|S $store [optional]
  * @return Country
  */
 function df_store_country($store = null) {return df_country(df_store($store)->getConfig(
@@ -116,7 +107,7 @@ function df_store_country($store = null) {return df_country(df_store($store)->ge
  * @used-by df_category()
  * @used-by df_product()
  * @used-by \Df\YandexCheckout\Method::setStore()
- * @param int|string|null|bool|Store $store [optional]
+ * @param int|string|null|bool|S $store [optional]
  * @return int
  */
 function df_store_id($store = null) {return df_store($store)->getId();}
@@ -126,7 +117,7 @@ function df_store_id($store = null) {return df_store($store)->getId();}
  * Returns an empty string if the store's root URL is absent in the Magento database.
  * @used-by df_store_url_link()
  * @used-by df_store_url_web()
- * @param int|string|null|bool|Store $s
+ * @param int|string|null|bool|S $s
  * @param string $type
  * @return string
  */
@@ -135,16 +126,16 @@ function df_store_url($s, $type) {return df_store($s)->getBaseUrl($type);}
 /**
  * 2017-03-15
  * Returns an empty string if the store's root URL is absent in the Magento database.
- * @param int|string|null|bool|Store $s [optional]
+ * @param int|string|null|bool|S $s [optional]
  * @return string
  */
-function df_store_url_link($s = null) {return df_store_url($s, Store::URL_TYPE_LINK);}
+function df_store_url_link($s = null) {return df_store_url($s, S::URL_TYPE_LINK);}
 
 /**
  * 2017-03-15
  * Returns an empty string if the store's root URL is absent in the Magento database.
  * @used-by df_domain_current()
- * @param int|string|null|bool|Store $s [optional]
+ * @param int|string|null|bool|S [optional]
  * @return string
  */
-function df_store_url_web($s = null) {return df_store_url($s, Store::URL_TYPE_WEB);}
+function df_store_url_web($s = null) {return df_store_url($s, S::URL_TYPE_WEB);}

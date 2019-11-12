@@ -6,16 +6,16 @@ use Mage_Core_Model_Store as Store;
  * https://github.com/magento/magento2/issues/2064
  *                            
  * @used-by df_mail()
- * @param string|string[] $key
- * @param null|string|int|Store $scope [optional]
+ * @param string|string[] $k
+ * @param null|string|int|Store $s [optional]
  * @param mixed|callable $d [optional]
  * @return array|string|null|mixed
  */
-function df_cfg($key, $scope = null, $d = null) {
-	if (is_array($key)) {
-		$key = df_cc_path($key);
+function df_cfg($k, $s = null, $d = null) {
+	if (is_array($k)) {
+		$k = df_cc_path($k);
 	}
-	$r = df_store($scope)->getConfig($key); /** @var array|string|null|mixed $result */
+	$r = df_store($s)->getConfig($k); /** @var array|string|null|mixed $r */
 	return df_if(df_cfg_empty($r), $d, $r);
 }
 

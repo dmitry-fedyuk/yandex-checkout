@@ -263,12 +263,9 @@ class Client
      * the data to the upstream Sentry server.
      *
      * @param $value
+	 * @return $this
      */
-    function setTransport($value)
-    {
-        $this->transport = $value;
-        return $this;
-    }
+    function setTransport($value) {$this->transport = $value; return $this;}
 
     static function getDefaultProcessors() {return [SanitizeDataProcessor::class];}
 

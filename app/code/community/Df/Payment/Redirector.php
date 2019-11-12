@@ -10,7 +10,7 @@ final class Redirector {
 	 * @used-by \Df_YandexCheckout_RedirectController::indexAction()
 	 * @return bool
 	 */
-	static function is() {return !!df_session_checkout()->getData(self::$K);}
+	static function is() {return !!df_checkout_session()->getData(self::$K);}
 
 	/**
 	 * 2018-11-19
@@ -18,11 +18,11 @@ final class Redirector {
 	 * @used-by \Df_YandexCheckout_RedirectController::indexAction()
 	 */
 	static function restoreQuote() {
-		$o = df_session_checkout()->getLastRealOrder(); /** @var O $o */
+		$o = df_checkout_session()->getLastRealOrder(); /** @var O $o */
 		if ($o->canCancel()) {
 			$o->cancel()->save();
 		}
-		if ($qid = df_session_checkout()->getData('last_success_quote_id')) {  /** @var int|null $qid */
+		if ($qid = df_checkout_session()->getData('last_success_quote_id')) {  /** @var int|null $qid */
 			$q = \Mage::getModel('sales/quote');	/** @var Q $q */
 			$q->load($qid);
 			$q->setIsActive(true);
@@ -31,7 +31,7 @@ final class Redirector {
 			// «When a customer checkouts as a guest, but cancels at ECPay checkout,
 			// the contents do not stay in cart».
 			// https://github.com/sunpeak-us/ecpay/issues/21
-			df_session_checkout()->replaceQuote($q);
+			df_checkout_session()->replaceQuote($q);
 		}
 		self::unset();
 	}
@@ -40,13 +40,13 @@ final class Redirector {
 	 * 2018-11-19
 	 * @used-by \Df_YandexCheckout_RedirectController::indexAction()
 	 */
-	static function set() {df_session_checkout()->setData(self::$K, true);}
+	static function set() {df_checkout_session()->setData(self::$K, true);}
 
 	/**
 	 * 2018-11-19
 	 * @used-by \Df\Payment\Observer::controller_action_predispatch_checkout()
 	 */
-	static function unset() {df_session_checkout()->unsetData(self::$K);}
+	static function unset() {df_checkout_session()->unsetData(self::$K);}
 
 	/**
 	 * 2018-11-19
