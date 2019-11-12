@@ -16,6 +16,11 @@ composer require zendframework/zend-filter:*
 
 ### Step 3
 ```
+sed -i 's/^"Your order # is: %s.","номер вашего заказа: "$/"Your order # is: %s.","номер Вашего заказа: %s."/' app/design/frontend/iframe/iframe_responsive/locale/ru_RU/translate.csv
+```
+
+### Step 4
+```
 rm -f app/etc/modules/LesMills_YandexCheckout.xml ;
 rm -rf app/code/community/Df ;
 rm -rf app/code/local/LesMills/YandexCheckout ;
