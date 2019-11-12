@@ -280,14 +280,14 @@ class Client
     {
         $processors = [];
         foreach (Util::get($options, 'processors', self::getDefaultProcessors()) as $processor) {
-            $new_processor = new $processor($this);
+            $newP = new $processor($this); /** @var \Df\Sentry\SanitizeDataProcessor $newP */
 
             if (isset($options['processorOptions']) && is_array($options['processorOptions'])) {
                 if (isset($options['processorOptions'][$processor]) && method_exists($processor, 'setProcessorOptions')) {
-                    $new_processor->setProcessorOptions($options['processorOptions'][$processor]);
+                    $newP->setProcessorOptions($options['processorOptions'][$processor]);
                 }
             }
-            $processors[] = $new_processor;
+            $processors[] = $newP;
         }
         return $processors;
     }
@@ -372,6 +372,7 @@ class Client
      * @param string $message The message (primary description) for the event.
      * @param array $params params to use when formatting the message.
      * @param array $data Additional attributes to pass with this event (see Sentry docs).
+	 * @return mixed
      */
     function captureMessage($message, $params=[], $data=[], $stack = false, $vars = null) {
         // Gracefully handle messages which contain formatting characters, but were not
@@ -397,6 +398,7 @@ class Client
      *
      * @param E|DFE $e
      * @param array $data
+	 * @return mixed
      */
     function captureException(E $e, $data=null, $logger=null, $vars=null) {
         if (in_array(get_class($e), $this->exclude)) {
@@ -768,6 +770,7 @@ class Client
      * Wrapper to handle encoding and sending data to the Sentry API server.
      *
      * @param array     $data       Associative array of data to log
+	 * @return mixed
      */
     function send(&$data)
     {

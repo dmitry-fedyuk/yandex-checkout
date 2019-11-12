@@ -118,21 +118,8 @@ function df_url_backend_ns($path = null, array $params = []) {return df_url_back
 	$path, ['_nosecret' => true] + $params
 );}
 
-/** @return Mage_Adminhtml_Model_Url */
+/** @return \Mage_Adminhtml_Model_Url */
 function df_url_backend_o() {return Mage::getModel('adminhtml/url');}
-
-/**
- * Пребразует строку вида «превед [[медвед]]» в «превед <a href="http://yandex.ru">медвед</a>».
- * @used-by Df_Admin_Model_Notifier::getMessage()
- * @used-by Df_Admin_Model_Notifier_Settings::getMessage()
- * @param string $text
- * @param string $u
- * @param string $quote [optional]
- * @return string
- */
-function df_url_bake($text, $u, $quote = '"') {return
-	!df_contains($text, '[[') ? $text : preg_replace("#\[\[([^\]]+)\]\]#u", df_tag_a('$1', $u), $text)
-;}
 
 /**
  * 2016-05-31

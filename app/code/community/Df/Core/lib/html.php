@@ -52,22 +52,11 @@ function df_tag($tag, $attrs = [], $content = null, $multiline = null) {return H
 
 /**
  * 2016-11-17
- * @used-by df_url_bake()
  * @param string $text
  * @param string[] $url
  * @return string
  */
-function df_tag_a($text, ...$url) {return df_tag('a', ['href' => implode($url)], $text);}
-
-/**
- * 2016-11-17
- * @param string $text
- * @param string[] $url
- * @return string
- */
-function df_tag_ab($text, ...$url) {return df_tag(
-	'a', ['href' => implode($url), 'target' => '_blank'], $text
-);}
+function df_tag_ab($text, ...$url) {return df_tag('a', ['href' => implode($url), 'target' => '_blank'], $text);}
 
 /**
  * 2016-10-24

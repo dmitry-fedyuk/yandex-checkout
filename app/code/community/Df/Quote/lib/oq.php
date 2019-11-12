@@ -154,9 +154,7 @@ function df_oq_iid($oq) {
  */
 function df_oq_sa($oq, $empty = false) { /** @var OA|QA|null $r */
 	if (df_is_o($oq)) {
-		$r = $oq->getShippingAddress() ?: (!$empty ? null :
-			df_new_omd(OA::class, ['address_type' => OA::TYPE_SHIPPING])
-		);
+		$r = $oq->getShippingAddress() ?: (!$empty ? null : new OA(['address_type' => OA::TYPE_SHIPPING]));
 	}
 	else if (df_is_q($oq)) {
 		/**
@@ -167,9 +165,7 @@ function df_oq_sa($oq, $empty = false) { /** @var OA|QA|null $r */
 		 */
 		$r = df_find(function(QA $a) use($empty) {return
 			!$a->isDeleted() && QA::TYPE_SHIPPING === $a->getAddressType()
-		;}, $oq->getAddressesCollection()) ?: (!$empty ? null :
-			df_new_omd(QA::class, ['address_type' => QA::TYPE_SHIPPING])
-		);
+		;}, $oq->getAddressesCollection()) ?: (!$empty ? null : new QA(['address_type' => QA::TYPE_SHIPPING]));
 	}
 	else {
 		df_error();

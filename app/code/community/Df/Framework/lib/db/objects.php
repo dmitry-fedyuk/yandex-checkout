@@ -37,7 +37,7 @@ function df_conn() {return df_db_resource()->getConnection('write');}
  * @used-by df_table()
  * @return RC
  */
-function df_db_resource() {return df_o(RC::class);}
+function df_db_resource() {return \Mage::getSingleton('core/resource');}
 
 /**
  * 2015-09-29
@@ -56,4 +56,4 @@ function df_select() {return df_conn()->select();}
  * 2016-03-26
  * @return T
  */
-function df_db_transaction() {return df_new_om(T::class);}
+function df_db_transaction() {return new T;}

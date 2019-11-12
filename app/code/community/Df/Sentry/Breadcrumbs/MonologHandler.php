@@ -71,7 +71,7 @@ class MonologHandler extends AbstractProcessingHandler
         }
 
         if (isset($record['context']['exception']) && $record['context']['exception'] instanceof \Exception) {
-            $exc = $record['context']['exception'];
+            $exc = $record['context']['exception']; /** @var \Exception $exc */
             $crumb = array(
                 'type' => 'error',
                 'level' => $this->logLevels[$record['level']],

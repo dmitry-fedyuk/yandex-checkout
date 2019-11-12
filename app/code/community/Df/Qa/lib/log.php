@@ -72,7 +72,7 @@ function df_log_l($caller, $data, $suffix = null) {
 		df_log_e($data);
 	}
 	else {
-		$code = df_package_name_l($caller); /** @var $code $method */
+		$code = df_module_name_lc($caller); /** @var $code $method */
 		$data = is_string($data) ? $data : df_json_encode($data);
 		$ext = df_starts_with($data, '{') ?  'json' : 'log'; /** @var string $ext */
 		df_report(df_ccc('--', "mage2.pro/$code-{date}--{time}", $suffix) .  ".$ext", $data);
