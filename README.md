@@ -47,4 +47,4 @@ rm -rf var/cache var/full_page_cache
 ```
 
 ## How to upgrade
-Execute the Step 3 from the installation part.
+Execute the Step 5 from the installation part.
