@@ -143,7 +143,7 @@ final class RedirectURL {
 				 */
 				,'return_url' => \Mage::getUrl("{$m->getCode()}/customerReturn", [
 					// 2019-11-12 Without `_nosid` the system will add the `?___SID=U` parameter to the URL.
-					'_nosid' => true, '_query' => [self::OID => $m->oq()->getIncrementId()], '_secure' => true
+					'_nosid' => true, '_secure' => true
 				])
 				/**
 				 * 2019-11-11
@@ -175,10 +175,4 @@ final class RedirectURL {
 		$c = $yp->getConfirmation(); /** @var Confirmation $c */
 		return df_result_sne($c->getConfirmationUrl());
 	}
-
-	/**
-	 * 2019-11-22
-	 * @used-by get()
-	 */
-	const OID = 'order';
 }
