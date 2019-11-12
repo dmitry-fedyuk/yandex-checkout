@@ -1,7 +1,6 @@
 <?php
 namespace Df\YandexCheckout;
 use Df\YandexCheckout\Method as M;
-use Mage_Sales_Model_Order as O;
 use YandexCheckout\Client as YC;
 use YandexCheckout\Model\Confirmation\ConfirmationRedirect as Confirmation;
 use YandexCheckout\Request\Payments\CreatePaymentResponse as YP;
@@ -41,7 +40,6 @@ final class RedirectURL {
 	static function get(M $m) {
 		$yc = new YC(); /** @var YC $yc */
 		$yc->setAuth('649593', 'test_GAYN1K-abG3t0cUwLRFuLdeLQXlz60SFVDqiuO4B_Eg');
-		$a = dfp_due($m);
 		/**
 		 * 2019-11-09
 		 * A response:
