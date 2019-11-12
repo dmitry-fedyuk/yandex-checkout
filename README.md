@@ -20,6 +20,12 @@ sed -i 's/^"Your order # is: %s.","номер вашего заказа: "$/"You
 ```
 
 ### Step 4
+It adds [PHP namespaces](https://www.php.net/manual/en/language.namespaces.php) support to Magento 1:
+```
+sed -i $'s|$classFile = str_replace(\' \', DIRECTORY_SEPARATOR, ucwords(str_replace(\'_\', \' \', $class)));|$classFile = str_replace(\'\\\\\\\\\', \'\/\', str_replace(\' \', DIRECTORY_SEPARATOR, ucwords(str_replace(\'_\', \' \', $class))));|g' app/code/local/Varien/Autoload.php
+```
+
+### Step 5
 ```
 rm -f app/etc/modules/LesMills_YandexCheckout.xml ;
 rm -rf app/code/community/Df ;
