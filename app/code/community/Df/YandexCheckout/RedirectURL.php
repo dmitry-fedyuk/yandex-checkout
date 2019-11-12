@@ -141,7 +141,7 @@ final class RedirectURL {
 				 * «The URL that the user will return to after confirming or canceling the payment on the webpage.»
 				 * https://checkout.yandex.com/developers/api#create_payment_confirmation_redirect_return_url
 				 */
-				,'return_url' => 'https://www.merchant-website.com/return_url'
+				,'return_url' => \Mage::getUrl('df-yandex-checkout/customerReturn', ['_secure' => true])
 				/**
 				 * 2019-11-11
 				 * Required. String. «Confirmation scenario code.»
@@ -158,7 +158,7 @@ final class RedirectURL {
 			 * https://checkout.yandex.com/developers/api#create_payment_description
 			 * https://checkout.yandex.com/developers/api#payment_object_description
 			 */
-			,'description' => 'Заказ №1'
+			//,'description' => 'Заказ №1'
 			/**
 			 * 2019-11-11
 			 * Optional. Boolean.

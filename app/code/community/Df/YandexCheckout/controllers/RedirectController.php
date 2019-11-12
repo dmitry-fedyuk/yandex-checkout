@@ -1,10 +1,15 @@
 <?php
 use Df\Payment\Redirector as R;
 use Df\YandexCheckout\Method as M;
-// 2019-11-10
+/**
+ * 2019-11-10
+ * 2019-11-12
+ * Magento 1 does not support namespaces for controller class names:
+ * @see \Mage_Core_Controller_Varien_Router_Standard::getControllerClassName()
+ */
 class Df_YandexCheckout_RedirectController extends Mage_Core_Controller_Front_Action {
 	/**
-	 * 2019-11-10 Перенаправляет покупателя на внешнуюю для магазина платёжную страницу  платёжной системы.
+	 * 2019-11-10
 	 * @return void
 	 */
 	function indexAction() {
