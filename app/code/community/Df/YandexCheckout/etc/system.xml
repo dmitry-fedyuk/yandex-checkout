@@ -3,7 +3,7 @@
    <sections>
 		<payment>
 			<groups>
-				<yandex_checkout>
+				<df_yandex_checkout>
 					<frontend_type>text</frontend_type>
 					<label>Yandex.Checkout</label>
 					<show_in_default>1</show_in_default>
@@ -70,7 +70,7 @@
 							<validate>required-entry</validate>
 						</livePrivateKey>
 					</fields>
-				</yandex_checkout>
+				</df_yandex_checkout>
 			</groups>
 		</payment>
 	</sections>
