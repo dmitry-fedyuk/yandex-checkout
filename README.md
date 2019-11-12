@@ -16,7 +16,7 @@ composer require zendframework/zend-filter:*
 
 ### Step 3
 ```
-sed -i 's/^"Your order # is: %s.","номер вашего заказа: "$/"Your order # is: %s.","номер Вашего заказа: %s."/' app/design/frontend/iframe/iframe_responsive/locale/ru_RU/translate.csv
+sed -i 's/^"Your order # is: %s.","номер вашего заказа: "$/"Your order # is: %s.","Номер Вашего заказа: %s."/' app/design/frontend/iframe/iframe_responsive/locale/ru_RU/translate.csv
 ```
 
 ### Step 4
