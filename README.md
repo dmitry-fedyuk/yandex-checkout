@@ -20,9 +20,11 @@ sed -i 's/^"Your order # is: %s.","номер вашего заказа: "$/"You
 ```
 
 ### Step 4
-It adds [PHP namespaces](https://www.php.net/manual/en/language.namespaces.php) support to Magento 1:
+It adds the [PHP namespaces](https://www.php.net/manual/en/language.namespaces.php) support to Magento 1:
 ```
 sed -i $'s|$classFile = str_replace(\' \', DIRECTORY_SEPARATOR, ucwords(str_replace(\'_\', \' \', $class)));|$classFile = str_replace(\'\\\\\\\\\', \'\/\', str_replace(\' \', DIRECTORY_SEPARATOR, ucwords(str_replace(\'_\', \' \', $class))));|g' app/code/local/Varien/Autoload.php
+
+sed -i $'s|$classFile = uc_words($class, DIRECTORY_SEPARATOR).\'.php\';|$classFile = str_replace(\'\\\\\\\\\', \'\/\', uc_words($class, DIRECTORY_SEPARATOR).\'.php\');|g' app/code/core/Mage/Core/functions.php
 ```
 
 ### Step 5
