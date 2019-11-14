@@ -4,7 +4,7 @@ The module integrates Magento 1 with the **[Yandex.Checkout](https://checkout.ya
 ### Step 1
 Remove the current `composer.json` file as it is just a garbage:
 ```
-rm -rf composer.json
+rm -f composer.json
 ```
 
 ### Step 2
